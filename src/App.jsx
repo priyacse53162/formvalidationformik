@@ -3,10 +3,10 @@ import {Formik, Form, Field ,ErrorMessage} from "formik"
 import * as Yup from "yup"
 function App() {
   const validationform = Yup.object().shape({
-    username: Yup.string().required("enter username"),
-    email:Yup.string().email("enter valid email").required("enter email"),
-    password:Yup.string().min(8,"minimum 8 letter").required("enter password"),
-    cpassword: Yup.string().oneOf([Yup.ref("password"),null]).required("enter confirm password")
+    username: Yup.string().required("Enter valid username"),
+    email:Yup.string().email("Enter valid email").required("Enter valid email"),
+    password:Yup.string().min(8,"Min 8 letter").required("Enter valid password"),
+    cpassword: Yup.string().oneOf([Yup.ref("password"),null],"Password not match").required("Enter valid Confirm password")
   })
   const initialvalues={
     username:"",
@@ -15,7 +15,7 @@ function App() {
     cpassword:""
   }
   const handlesubmit=(values)=>{
-    console.log(values)
+    alert("submited sussesfully")
   }
   return (
     <div className="bgcontainer">
